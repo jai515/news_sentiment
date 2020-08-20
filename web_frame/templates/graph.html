@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<div id = 'form-div'>
+    <form id="graph-input" method="POST" action="/">
+        <label for="topic">Please enter a topic: </label>
+        <input id = 'topic' type="text" name = 'topic'>
+        <br>
+        <label for="domain">Please enter a news domain (newssite.com) </label>
+        <input id ='domain' type="text" name = 'domain'>
+        <input type="submit">
+    </form>
+</div>
+<img src = "{{ url_for('static', filename='graph.png') }}" alt="There should be a graph here" />
+</body>
+</html>
