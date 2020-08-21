@@ -1,5 +1,4 @@
 import matplotlib.pyplot as plt
-import matplotlib.colors as mcolor
 import matplotlib.dates as mdates
 import numpy as np
 import nltk
@@ -7,9 +6,6 @@ import requests
 import datetime
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 # VADER is specifically tuned for sentiment analysis of social media
-
-# from difflib import SequenceMatcher
-# returns a ration of similarity between two strings
 
 
 # get sentiment scores on a topic. returns dict of k:v -> python_dates: sentiment scores
@@ -101,7 +97,7 @@ def create_graph(data_input):
         plt.plot(dates, p(dates), color=color, linestyle='-', linewidth=0.8)
 
     # colors for graph if not randomly generated
-    color_list = ['b', 'r', 'g', 'k', 'purple', 'yellow', 'saddlebrown', 'grey', 'orange', 'indigo']
+    color_list = ['b', 'r', 'g', 'k', 'purple', 'orange', 'saddlebrown', 'grey', 'yellow', 'indigo', 'cyan', 'orchid']
 
     # for every data set plot on the graph
     for x in range(0, len(data_input)):
@@ -121,8 +117,8 @@ def create_graph(data_input):
     plt.title(f"News Sentiment")
 
     # show it / save it
-    plt.savefig(f'./static/sentiment_graph.png', bbox_inches='tight')
-    #plt.show()
+    #plt.savefig(f'./static/sentiment_graph.png', bbox_inches='tight')
+    plt.show()
 
 
 # use get_news_sentiment() and create_graph() to compare sentiment on a topic from two news sources
@@ -140,7 +136,11 @@ def compare_news(topics, domains):
 
 if __name__ == "__main__":
     # api limits articles to up to a month old
-    compare_news(['trump', 'biden'], ['cnn.com', 'msnbc.com'])
+    compare_news(['amazon'], ['techcrunch.com'])
+
+    #compare_news(['amazon'], ['techcrunch.com', 'theverge.com', 'gizmodo.com'])
+
+    #compare_news(['facebook', 'amazon', 'netflix', 'google'], ['gizmodo.com', 'techcrunch.com', 'theverge.com'])
 
 # put on flask and make some html inputs?
 
